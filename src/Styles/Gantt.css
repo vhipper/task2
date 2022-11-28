@@ -1,0 +1,19 @@
+
+.Gant_Container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Project_Period {
+    margin-left: 24px;
+    width: 360px;
+    height: 28px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    color: #262842;
+}
