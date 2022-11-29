@@ -1,0 +1,17 @@
+
+
+.Gantt_Chart {
+    position: absolute;
+    left: 208px;
+}
+
+svg rect {
+    fill-opacity: 0;
+}
+
+svg path {
+    display: flex;
+    margin-left: 100px;
+}
+
+

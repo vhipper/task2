@@ -11,10 +11,7 @@ export const fetchTasks = () => {
             const response = await axios.get("http://82.202.204.94/tmp/test.php")
             dispatch({type: TaskActionTypes.FETCH_TASKS_SUCCESS, payload: response.data})
         } catch (e) {
-            dispatch({
-                type: TaskActionTypes.FETCH_TASKS_ERROR,
-                payload: 'Произошла ошибка при загрузке данных'
-            })
+
         }
     }
 }

@@ -1,14 +1,19 @@
 
 export interface TaskState {
-    tasks: any[];
-    loading: boolean;
-    error: null | string;
+    tasks: {
+        project: "string", period: "string",
+        chart: {id: "number", title: "string", period_start: "string", period_end: "string",
+            sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                    sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                        sub: [{id: "number", title: "string", period_start: "string", period_end: "string",},
+                            {id: "number", title: "string", period_start: "string", period_end: "string",}]
+                        }]}]}]}}
 }
 
 export enum TaskActionTypes {
     FETCH_TASKS = 'FETCH_TASKS',
     FETCH_TASKS_SUCCESS = 'FETCH_TASKS_SUCCESS',
-    FETCH_TASKS_ERROR = 'FETCH_TASKS_ERROR'
 }
 
 interface FetchTasksAction {
@@ -17,12 +22,16 @@ interface FetchTasksAction {
 
 interface FetchTasksSuccessAction {
     type: TaskActionTypes.FETCH_TASKS_SUCCESS;
-    payload: any[]
+    payload: {
+        project: "string", period: "string",
+        chart: {id: "number", title: "string", period_start: "string", period_end: "string",
+            sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                    sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                        sub: [{id: "number", title: "string", period_start: "string", period_end: "string",},
+                            {id: "number", title: "string", period_start: "string", period_end: "string",}]
+                    }]}]}]}}
 }
 
-interface FetchTasksErrorAction {
-    type: TaskActionTypes.FETCH_TASKS_ERROR;
-    payload: string;
-}
 
-export type TaskAction = FetchTasksAction | FetchTasksSuccessAction | FetchTasksErrorAction
+export type TaskAction = FetchTasksAction | FetchTasksSuccessAction

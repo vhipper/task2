@@ -1,20 +1,32 @@
 import {TaskAction, TaskActionTypes, TaskState} from "../../types/task";
 
-
 const initialState: TaskState = {
-    tasks: [],
-    loading: false,
-    error: null
+    tasks: {
+        project: "string", period: "string",
+        chart: {id: "number", title: "string", period_start: "string", period_end: "string",
+            sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                    sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                        sub: [{id: "number", title: "string", period_start: "string", period_end: "string",},
+                            {id: "number", title: "string", period_start: "string", period_end: "string",}]
+                    }]}]}]}},
 }
 
 export const taskReducer = (state = initialState, action: TaskAction): TaskState => {
     switch (action.type) {
         case TaskActionTypes.FETCH_TASKS:
-            return {loading: true, error: null, tasks: []}
+            return { tasks: {
+                    project: "string", period: "string",
+                    chart: {id: "number", title: "string", period_start: "string", period_end: "string",
+                        sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                            sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                                sub: [{id: "number", title: "string", period_start: "string", period_end: "string",
+                                    sub: [{id: "number", title: "string", period_start: "string", period_end: "string",},
+                                        {id: "number", title: "string", period_start: "string", period_end: "string",}]
+                                }]}]}]}}
+            }
         case TaskActionTypes.FETCH_TASKS_SUCCESS:
-            return {loading: false, error: null, tasks: action.payload}
-        case TaskActionTypes.FETCH_TASKS_ERROR:
-            return {loading: false, error: action.payload, tasks: []}
+            return {tasks: action.payload}
         default:
             return state
     }
